@@ -20,7 +20,7 @@ public class StartApplication implements CommandLineRunner {
 	@Override
 	public void run(String... args) throws Exception {
 		DummyService service = context.getBean(DummyService.class);
-		service.serve("mensagem de teste");
+		service.serve("xpto");
 
 	}
 

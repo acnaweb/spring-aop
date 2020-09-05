@@ -7,7 +7,7 @@ import io.gitbut.acnaweb.springaop.aspect.LogExecutionTime;
 @Component
 public class DummyService {
 
-	@LogExecutionTime
+	@LogExecutionTime("abc")
 	public void serve(String msg) throws InterruptedException {
 		System.out.println("serve() " + msg);
 		Thread.sleep(2000);

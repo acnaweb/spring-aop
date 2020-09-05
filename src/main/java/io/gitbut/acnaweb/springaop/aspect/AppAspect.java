@@ -11,12 +11,15 @@ public class AppAspect {
 
 	// @Around -> advice
 	// pointcut -> métodos anotados com @LogExecutionTime
-	@Around("@annotation(LogExecutionTime)")
-	public Object logExecutionTime(ProceedingJoinPoint joinPoint) throws Throwable {
+	@Around("@annotation(logExecutionTime)")
+	public Object logExecutionTime(ProceedingJoinPoint joinPoint, LogExecutionTime logExecutionTime) throws Throwable {
 		long start = System.currentTimeMillis();
 
 		// executa o método anotado
-		System.out.println("antes " + joinPoint.getArgs()[0]);
+		String argumentoDoMetodo = (String) joinPoint.getArgs()[0];
+		String argumentoDaAnotacao = logExecutionTime.value();
+		System.out.println(
+				String.format("antes - arg metodo: %s/arg anotacao: %s", argumentoDoMetodo, argumentoDaAnotacao));
 
 		Object proceed = joinPoint.proceed();
 		System.out.println("depois");
