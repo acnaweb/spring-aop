@@ -16,7 +16,8 @@ public class AppAspect {
 		long start = System.currentTimeMillis();
 
 		// executa o método anotado
-		System.out.println("antes");
+		System.out.println("antes " + joinPoint.getArgs()[0]);
+
 		Object proceed = joinPoint.proceed();
 		System.out.println("depois");
 
